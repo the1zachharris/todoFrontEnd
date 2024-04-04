@@ -1,8 +1,8 @@
 <p>list works!</p>
 <ul>
-  <li>get <button>x</button></li>
-  <li>list <button>x</button></li>
-  <li>from <button>x</button></li>
-  <li>backend <button>x</button></li>
+  <li *ngFor="let listItem of list">{{ listItem.name }} <button>x</button></li>
 </ul>
-<button>add item</button>
+<form>
+  <input type="text" required>
+  <button type="submit">add item</button>
+</form>

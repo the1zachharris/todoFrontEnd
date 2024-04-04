@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { IList } from './list.model';
+import { ListService } from './list.service';
 
 @Component({
   selector: 'todo-list',
@@ -6,8 +8,13 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./list.component.css']
 })
 export class ListComponent implements OnInit {
-  constructor(){}
+  list: any;
+
+  constructor(private listSvc: ListService) {}
+
   ngOnInit(): void {
-    // get full list
+    this.listSvc.getList().subscribe(list => {
+      this.list = list;
+    })
   }
 }
