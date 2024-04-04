@@ -8,7 +8,7 @@ import { ListService } from './list.service';
   styleUrls: ['./list.component.css']
 })
 export class ListComponent implements OnInit {
-  list: any;
+  list: IList[] = [];
 
   constructor(private listSvc: ListService) {}
 
@@ -16,5 +16,19 @@ export class ListComponent implements OnInit {
     this.listSvc.getList().subscribe(list => {
       this.list = list;
     })
+
   }
+
+  createList(newListitem: string): void{
+    this.listSvc.createList(newListitem).subscribe(listItem => {
+      this.list.push(listItem);
+    });
+  }
+
+  deleteList(listItem: IList): void{
+    this.listSvc.deleteList(listItem.id).subscribe(() => {
+      this.list.splice(this.list.indexOf(listItem), 1);
+    });
+  }
+
 }

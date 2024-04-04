@@ -1,8 +1,10 @@
 <p>list works!</p>
 <ul>
-  <li *ngFor="let listItem of list">{{ listItem.name }} <button>x</button></li>
+  <li *ngFor="let listItem of list">{{ listItem.name }} <button (click)="deleteList(listItem)">x</button></li>
 </ul>
-<form>
-  <input type="text" required>
-  <button type="submit">add item</button>
-</form>
+
+<input #newListItem (keyup.enter)="createList(newListItem.value); newListItem.value = ''" type="text" required/>
+<button (click)="createList(newListItem.value); newListItem.value = ''" type="submit">add item</button>
+
+
+
