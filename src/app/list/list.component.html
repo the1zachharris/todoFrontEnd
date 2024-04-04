@@ -1,10 +1,10 @@
-<p>list works!</p>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <ul>
-  <li *ngFor="let listItem of list">{{ listItem.name }} <button (click)="deleteList(listItem)">x</button></li>
+  <li *ngFor="let listItem of list">{{ listItem.name }} <i (click)="deleteList(listItem)" class="fa fa-times-circle"></i></li>
 </ul>
 
 <input #newListItem (keyup.enter)="createList(newListItem.value); newListItem.value = ''" type="text" required/>
-<button (click)="createList(newListItem.value); newListItem.value = ''" type="submit">add item</button>
+<button (click)="createList(newListItem.value); newListItem.value = ''"><i class="fa fa-plus"></i></button>
 
 
 
